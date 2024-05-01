@@ -45,7 +45,7 @@
   @apply dark:bg-gray-800 !important;
 }
 
-.svgMap-map-wrapper .svgMap-control-button  {
+.svgMap-map-wrapper .svgMap-control-button {
   @apply rounded-lg border-solid border border-gray-300 hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-600 !important;
 }
 
@@ -62,11 +62,16 @@
   @apply bg-white dark:bg-gray-700 shadow-lg rounded-lg border-0 text-left !important;
 }
 
-.svgMap-tooltip .svgMap-tooltip-content-container .svgMap-tooltip-flag-container {
+.svgMap-tooltip
+  .svgMap-tooltip-content-container
+  .svgMap-tooltip-flag-container {
   @apply inline-block mr-2 text-left border-0 p-0 !important;
 }
 
-.svgMap-tooltip .svgMap-tooltip-content-container .svgMap-tooltip-flag-container .svgMap-tooltip-flag {
+.svgMap-tooltip
+  .svgMap-tooltip-content-container
+  .svgMap-tooltip-flag-container
+  .svgMap-tooltip-flag {
   @apply inline-block border-0 h-4 p-0 !important;
 }
 
@@ -174,4 +179,19 @@
   .feed-container {
     height: calc(100vh - 4rem);
   }
+}
+
+.sidebar {
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+  transition: width 0.3s ease-in-out;
+}
+
+.sidebar.open {
+  width: 250px;
 }
