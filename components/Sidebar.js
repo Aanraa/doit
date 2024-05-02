@@ -17,7 +17,7 @@ const Sidebar = () => {
     <div>
       <aside
         id="default-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen
+        className="fixed top-0 left-0 z-40 w-64 h-screen bg-white
          transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
@@ -29,12 +29,6 @@ const Sidebar = () => {
             <span className="flex-1 ms-3 whitespace-nowrap text-xl font-bold">
               Translato
             </span>
-            {/* <button
-              onClick={toggleSidebar}
-              className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-500 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300 hover:text-gray-700"
-            >
-              Буцах
-            </button> */}
           </Link>
           <ul className="space-y-4 font-medium">
             <li>
@@ -61,7 +55,7 @@ const Sidebar = () => {
                   toggleSidebar();
                 }}
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group focus:bg-gray-100"
               >
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -94,26 +88,26 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="/course"
-                      class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                      class="flex items-center w-full p-2 text-gray-700 hover:text-gray-900  transition duration-75 rounded-lg pl-11 group hover:bg-gray-100  focus:bg-gray-100"
                     >
                       Хичээл 1
                     </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="#"
-                      class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                      class="flex items-center w-full p-2 text-gray-700 hover:text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 focus:bg-gray-100"
                     >
                       Хичээл 2
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="#"
-                      class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                      class="flex items-center w-full p-2 text-gray-700 hover:text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 focus:bg-gray-100"
                     >
                       Хичээл 3
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               )}

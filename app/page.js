@@ -7,6 +7,7 @@ import {
   test,
 } from "@/components/Json";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
@@ -22,19 +23,21 @@ export default function Home() {
             />
             <div class="text-center lg:w-2/3 w-full">
               <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
-                Microdosing synth tattooed vexillologist
+                Хэл сурах боломжоо нэмэгдүүл
               </h1>
               <p class="mb-8 leading-relaxed">
-                Meggings kinfolk echo park stumptown DIY, kale chips beard
-                jianbing tousled. Chambray dreamcatcher trust fund, kitsch vice
-                godard disrupt ramps hexagon mustache umami snackwave tilde
-                chillwave ugh. Pour-over meditation PBR&amp;B pickled ennui
-                celiac mlkshk freegan photo booth af fingerstache pitchfork.
+                Яг хийж эхлэх үед Та юу хийх, яаж хийх, хэзээ хийх, хэр удаан
+                хийхээ ойлгож бодож эхэлнэ.Тиймээс урам хугарсан өөртөө бурууг
+                битгий өгөөрэй. Яагаад гэвэл зорилгоо тодорхой тавьж, өөрийнхөө
+                асуудлыг олж ажиллаж эхлэх үеэс л та сайжирч эхэлнэ.
               </p>
               <div class="flex justify-center">
-                <button class=" inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-                  Button
-                </button>
+                <Link
+                  href={"/course"}
+                  class=" inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"
+                >
+                  Аялал эхлүүлэх
+                </Link>
               </div>
             </div>
           </div>
