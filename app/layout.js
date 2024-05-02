@@ -8,9 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <div className="h-screen flex flex-row justify-start">
+      <div className="h-full flex flex-row justify-start">
         <Sidebar />
-        <div className="bg-primary flex-1 p-4 text-white">
+        <div className=" flex-1 p-4 text-white">
           <body className={inter.className}>{children}</body>
         </div>
       </div>
