@@ -2,6 +2,11 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { GrCircleInformation } from "react-icons/gr";
+import { MdOutlineFeedback } from "react-icons/md";
+import { CiLogout } from "react-icons/ci";
+import { BiBookHeart } from "react-icons/bi";
+import { TbHomeEco } from "react-icons/tb";
 
 const Sidebar = () => {
   const className =
@@ -21,12 +26,12 @@ const Sidebar = () => {
          transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-200 dark:bg-gray-800">
+        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-900 dark:bg-gray-800">
           <Link
             href="/"
             className="flex items-center md:pb-15 pb-10 pt-4 m-2 text-gray-900 rounded-lg group"
           >
-            <span className="flex-1 ms-3 whitespace-nowrap text-xl font-bold">
+            <span className="flex-1 ms-3 whitespace-nowrap text-xl font-bold text-indigo-400">
               Translato
             </span>
           </Link>
@@ -34,19 +39,17 @@ const Sidebar = () => {
             <li>
               <Link
                 href="/"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2 text-slate-500 rounded-lg dark:text-white hover:bg-slate-700 dark:hover:bg-gray-700 group"
               >
-                <svg
-                  className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 22 21"
-                >
-                  <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                  <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
-                </svg>
-                <span className="ms-3">Нүүр</span>
+                <TbHomeEco
+                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
+                  height={4}
+                  width={4}
+                />
+
+                <span className="flex-1 ms-3 whitespace-nowrap group-hover:text-white">
+                  Нүүр
+                </span>
               </Link>
             </li>
             <li>
@@ -55,18 +58,16 @@ const Sidebar = () => {
                   toggleSidebar();
                 }}
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group focus:bg-gray-100"
+                className="flex items-center p-2 text-slate-500 rounded-lg dark:text-white hover:bg-slate-700 dark:hover:bg-gray-700 group"
               >
-                <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 18 18"
-                >
-                  <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">Хичээл</span>
+                <BiBookHeart
+                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
+                  height={4}
+                  width={4}
+                />
+                <span className="flex-1 ms-3 whitespace-nowrap group-hover:text-white">
+                  Хичээл
+                </span>
                 <svg
                   class="w-3 h-3"
                   aria-hidden="true"
@@ -88,7 +89,7 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="/course"
-                      class="flex items-center w-full p-2 text-gray-700 hover:text-gray-900  transition duration-75 rounded-lg pl-11 group hover:bg-gray-100  focus:bg-gray-100"
+                      class="flex items-center w-full p-2 text-gray-700  transition duration-75 rounded-lg pl-11 group hover:bg-slate-700 hover:text-slate-200 focus:bg-slate-700 focus:text-slate-200"
                     >
                       Хичээл 1
                     </Link>
@@ -96,7 +97,7 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="#"
-                      class="flex items-center w-full p-2 text-gray-700 hover:text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 focus:bg-gray-100"
+                      class="flex items-center w-full p-2 text-gray-700 transition duration-75 rounded-lg pl-11 group hover:bg-slate-700 hover:text-slate-200 focus:bg-slate-700 focus:text-slate-200"
                     >
                       Хичээл 2
                     </Link>
@@ -104,7 +105,7 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="#"
-                      class="flex items-center w-full p-2 text-gray-700 hover:text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 focus:bg-gray-100"
+                      class="flex items-center w-full p-2 text-gray-700 transition duration-75 rounded-lg pl-11 group hover:bg-slate-700 hover:text-slate-200 focus:bg-slate-700 focus:text-slate-200"
                     >
                       Хичээл 3
                     </Link>
@@ -115,35 +116,30 @@ const Sidebar = () => {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2 text-slate-500 rounded-lg dark:text-white hover:bg-slate-700 dark:hover:bg-gray-700 group"
               >
-                <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
-                </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">Хүсэлт</span>
+                <MdOutlineFeedback
+                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
+                  width={4}
+                  height={4}
+                />
+
+                <span className="flex-1 ms-3 whitespace-nowrap group-hover:text-white">
+                  Хүсэлт
+                </span>
               </a>
             </li>
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2 text-slate-500 rounded-lg dark:text-white hover:bg-slate-700 dark:hover:bg-gray-700 group"
               >
-                <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 18"
-                >
-                  <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
-                </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">
+                <GrCircleInformation
+                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
+                  height={4}
+                  width={4}
+                />
+                <span className="flex-1 ms-3 whitespace-nowrap group-hover:text-white">
                   Хэрэглэгчийн мэдээлэл
                 </span>
               </a>
@@ -152,24 +148,17 @@ const Sidebar = () => {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2 text-slate-500 rounded-lg dark:text-white hover:bg-slate-700 dark:hover:bg-gray-700 group"
               >
-                <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 18 16"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
-                  />
-                </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">Гарах</span>
+                <CiLogout
+                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
+                  height={4}
+                  width={4}
+                />
+
+                <span className="flex-1 ms-3 whitespace-nowrap group-hover:text-white">
+                  Гарах
+                </span>
               </a>
             </li>
           </ul>

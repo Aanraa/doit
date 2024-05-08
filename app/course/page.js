@@ -7,7 +7,7 @@ import {
   test,
 } from "@/components/Json";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Course() {
@@ -19,6 +19,7 @@ export default function Course() {
   const [chinaWord, setChinaWord] = useState(null);
   const [loading, setLoading] = useState(false);
   const [vid, setVid] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
   const getWords1 = (id) => {
     const words = holboo.find((e) => e.id == id);
     const words2 = niileh.find((e) => e.id == id);
@@ -38,8 +39,13 @@ export default function Course() {
       setLoading(false);
     }, "1000");
   };
+
   return (
-    <div className="h-screen w-full  bg-white">
+    <div
+      className={`h-screen w-full bg-white ${
+        openDialog ? "overflow-hidden" : ""
+      }`}
+    >
       <div className="p-4 sm:ml-64 ">
         <div className="py-10 ml-10">
           {test.map((item, i) => {
@@ -56,7 +62,18 @@ export default function Course() {
               </button>
             );
           })}
+          <button
+            type="button"
+            class="py-2.5 px-5 me-2 mb-2 text-xs font-medium text-slate-400 focus:outline-none bg-slate-300 rounded-full border border-gray-200 hover:bg-slate-700 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-100  ml-auto"
+            onClick={() => {
+              setOpenDialog(true);
+            }}
+          >
+            Өөрийгөө шалгах
+          </button>
         </div>
+        {/* dwadawdwa */}
+
         {loading ? (
           <div class="flex items-center justify-center w-auto h-fit dark:bg-gray-800 dark:border-gray-700">
             <div role="status">
@@ -81,23 +98,109 @@ export default function Course() {
           </div>
         ) : (
           <div className="w-auto">
+            {/* Modal start */}
+            <div
+              id="crud-modal"
+              tabindex="-1"
+              aria-hidden="true"
+              className={`fixed top-0 left-0 flex justify-center items-center w-full h-full z-50 ${
+                openDialog ? "" : "hidden"
+              }`}
+            >
+              <div class="relative p-4 w-full max-w-md max-h-full">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                  <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                      Өөрийгөө сорих
+                    </h3>
+                    <button
+                      type="button"
+                      class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                      data-modal-toggle="crud-modal"
+                      onClick={() => {
+                        setOpenDialog(false);
+                      }}
+                    >
+                      <svg
+                        class="w-3 h-3"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                        />
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                    </button>
+                  </div>
+                  <form class="p-4 md:p-5">
+                    <div class="grid gap-4 mb-4 grid-cols-2">
+                      <div class="col-span-2">
+                        <label
+                          for="description"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                          Бичих талбар
+                        </label>
+                        <textarea
+                          id="description"
+                          rows="4"
+                          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Зөв буруу хамаагүй бич"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <button
+                      type="submit"
+                      class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      onClick={() => {
+                        setOpenDialog(false);
+                      }}
+                    >
+                      <svg
+                        class="me-1 -ms-1 w-5 h-5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                      Хадгалах
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            {/* Modal end */}
+
             <div className="grid grid-cols-2 gap-20 mr-32 ml-32 my-14">
-              <div className="p-6 border border-gray-200 rounded-lg bg-slate-50 h-fit space-y-8">
+              <div className="p-6 border border-gray-200 rounded-lg bg-slate-200 h-fit space-y-8">
                 {word && (
-                  <div className="flex items-center justify-center h-20 mb-4 rounded-md shadow-sm dark:bg-gray-800 bg-white hover:text-xl">
-                    <p className="text-center text-black dark:text-gray-500">
+                  <div className="flex items-center justify-center h-20 mb-4 rounded-md shadow-sm dark:bg-gray-800 bg-indigo-400 hover:text-xl">
+                    <p className="text-center text-white dark:text-gray-500">
                       {word}
                     </p>
                   </div>
                 )}
+
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   {data?.words?.map((el, i) => {
                     return (
                       <div
                         key={i}
-                        className="flex items-center justify-center rounded-md bg-white h-24 hover:text-lg dark:bg-gray-800"
+                        className="flex items-center justify-center rounded-md bg-indigo-400 h-24 hover:text-lg dark:bg-gray-800"
                       >
-                        <p className="text-center text-gray-700 dark:text-gray-500 text-wrap">
+                        <p className="text-center text-gray-white dark:text-gray-500 text-wrap">
                           {el}
                         </p>
                       </div>
@@ -108,19 +211,19 @@ export default function Course() {
                   {data2?.words?.map((el, i) => (
                     <div
                       key={i}
-                      className="flex items-center justify-center h-24 rounded-md bg-white hover:text-lg dark:bg-gray-800"
+                      className="flex items-center justify-center h-24 rounded-md bg-indigo-400 hover:text-lg dark:bg-gray-800"
                     >
-                      <p className="text-center text-gray-700 dark:text-gray-500 text-wrap">
+                      <p className="text-center text-white dark:text-gray-500 text-wrap">
                         {el}
                       </p>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="p-6 border border-gray-200 rounded-lg bg-slate-50  h-fit space-y-8">
+              <div className="p-6 border border-gray-200 rounded-lg bg-slate-200  h-fit space-y-8">
                 {chinaWord && (
-                  <div className="flex items-center justify-center h-20 mb-4 rounded bg-white hover:text-xl dark:bg-gray-800">
-                    <p className="text-center text-black dark:text-gray-500">
+                  <div className="flex items-center justify-center h-20 mb-4 rounded bg-indigo-400 hover:text-xl dark:bg-gray-800">
+                    <p className="text-center text-white dark:text-gray-500">
                       {chinaWord}
                     </p>
                   </div>
@@ -130,9 +233,9 @@ export default function Course() {
                     return (
                       <div
                         key={i}
-                        className="flex items-center justify-center hover:text-lg rounded-md bg-white h-24 dark:bg-gray-800"
+                        className="flex items-center justify-center hover:text-lg rounded-md bg-indigo-400 h-24 dark:bg-gray-800"
                       >
-                        <p className="text-center text-gray-700 dark:text-gray-500">
+                        <p className="text-center text-white dark:text-gray-500">
                           {el}
                         </p>
                       </div>
@@ -143,9 +246,9 @@ export default function Course() {
                   {chinaData2?.words?.map((el, i) => (
                     <div
                       key={i}
-                      className="flex items-center justify-center h-24 rounded bg-white hover:text-lg dark:bg-gray-800"
+                      className="flex items-center justify-center h-24 rounded bg-indigo-400 hover:text-lg dark:bg-gray-800"
                     >
-                      <p className="text-center text-gray-700 dark:text-gray-500">
+                      <p className="text-center text-white dark:text-gray-500">
                         {el}
                       </p>
                     </div>
