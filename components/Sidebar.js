@@ -7,6 +7,8 @@ import { MdOutlineFeedback } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 import { BiBookHeart } from "react-icons/bi";
 import { TbHomeEco } from "react-icons/tb";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { AiTwotoneHighlight } from "react-icons/ai";
 
 const Sidebar = () => {
   const className =
@@ -29,9 +31,11 @@ const Sidebar = () => {
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-900 dark:bg-gray-800">
           <Link
             href="/"
-            className="flex items-center md:pb-15 pb-10 pt-4 m-2 text-gray-900 rounded-lg group"
+            className="flex justify-center items-center -ml-8 mx-auto md:pb-15 pb-10 pt-4 m-2 text-gray-900 rounded-lg group"
           >
-            <span className="flex-1 ms-3 whitespace-nowrap text-xl font-bold text-indigo-400">
+            <AiTwotoneHighlight size={30} className="" />
+
+            <span className="whitespace-nowrap text-xl ml-2 font-bold text-slate-200">
               Translato
             </span>
           </Link>
@@ -68,28 +72,18 @@ const Sidebar = () => {
                 <span className="flex-1 ms-3 whitespace-nowrap group-hover:text-white">
                   Хичээл
                 </span>
-                <svg
-                  class="w-3 h-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m1 1 4 4 4-4"
-                  />
-                </svg>
+                <RiArrowDropDownLine
+                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-white"
+                  height={4}
+                  width={4}
+                />
               </a>
               {toggle && (
-                <ul id="dropdown-example" class=" py-2 space-y-2">
+                <ul id="dropdown-example" className=" py-2 space-y-2">
                   <li>
                     <Link
                       href="/course"
-                      class="flex items-center w-full p-2 text-gray-700  transition duration-75 rounded-lg pl-11 group hover:bg-slate-700 hover:text-slate-200 focus:bg-slate-700 focus:text-slate-200"
+                      className="flex items-center w-full p-2 text-gray-700  transition duration-75 rounded-lg pl-11 group hover:bg-slate-700 hover:text-slate-200 focus:bg-slate-700 focus:text-slate-200"
                     >
                       Хичээл 1
                     </Link>
@@ -97,7 +91,7 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="#"
-                      class="flex items-center w-full p-2 text-gray-700 transition duration-75 rounded-lg pl-11 group hover:bg-slate-700 hover:text-slate-200 focus:bg-slate-700 focus:text-slate-200"
+                      className="flex items-center w-full p-2 text-gray-700 transition duration-75 rounded-lg pl-11 group hover:bg-slate-700 hover:text-slate-200 focus:bg-slate-700 focus:text-slate-200"
                     >
                       Хичээл 2
                     </Link>
@@ -105,7 +99,7 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="#"
-                      class="flex items-center w-full p-2 text-gray-700 transition duration-75 rounded-lg pl-11 group hover:bg-slate-700 hover:text-slate-200 focus:bg-slate-700 focus:text-slate-200"
+                      className="flex items-center w-full p-2 text-gray-700 transition duration-75 rounded-lg pl-11 group hover:bg-slate-700 hover:text-slate-200 focus:bg-slate-700 focus:text-slate-200"
                     >
                       Хичээл 3
                     </Link>
